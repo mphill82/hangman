@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="Jumbotron">
+        <h2>Hangman</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="https://vignette.wikia.nocookie.net/spongebob/images/2/2a/SpongeBob_SquarePants%28copy%290.png/revision/latest?cb=20160507142128" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <!--display theWord, leaving blanks until the letters are guessed-->
+                <p>___ ___ ___ ___ ___</p>
+            </div>
+            <div class="col-md-8">
+                Guess: <input type="text" size="5" onkeydown="userGuess(event);this.value='';">
+            </div>
+            <div class="row" id="previous_guesses">
+                <!--display all the previously guessed letters-->
+            </div>
+            <div class="row" id="message">
+                <!--display a message representing the state of the game-->
+                <h3>New game!</h3>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>trademark pending</p>
+    </div>
+    <script src="theGame.js"></script>  
+</body>
+</html>
