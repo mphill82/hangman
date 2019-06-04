@@ -3,15 +3,19 @@ var theWord;
 var guesses;
 var remainingLetterCount;
 var manCount;
+var reveal;
+
+reset();
 
 function reset(){
     theWord = "secret";
     guesses = "";
     remainingLetterCount = theWord.length;
     manCount = 6;
+    reveal = "_".repeat(remainingLetterCount).split("");
+    document.getElementById("revealing-word").innerHTML = reveal.join("  ");
+    console.log(reveal);
 }
-
-reset();
 
 function userGuess(event){
     var letter = event.key;
@@ -28,6 +32,8 @@ function userGuess(event){
                 match = true;                                               //verify a match, 
                 remainingLetterCount--;                                     //descrease the remainingLetterCount,
                 //-->adjust display of theWord                              //and display the letter.
+                reveal[i]=letter;
+                document.getElementById("revealing-word").innerHTML = reveal.join("  ");
                 document.getElementById("message").innerHTML = "<h3>It's a match!</h3>";
             }
         }
@@ -37,6 +43,7 @@ function userGuess(event){
             document.getElementById("message").innerHTML = "<h3>No match, sorry.</h3>";
         }
         console.log(match);
+
         //END GAME?
         if (remainingLetterCount<=0){                                       //if youve won...
             document.getElementById("message").innerHTML = "<h3>You won! </h3>";
@@ -46,5 +53,6 @@ function userGuess(event){
         document.getElementById("message").innerHTML = "<h3>You lost, sorry.</h3>";
             //--> make reset button which, if pressed, executes reset()
         }
+        console.log(manCount);
     }
 }
