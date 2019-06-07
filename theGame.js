@@ -5,23 +5,28 @@ var remainingLetterCount;
 var manCount;
 var reveal;
 
+var michaelWords = ["bombajohn", "kookaburra","candleboy","coasterboy","boinus","detritus","rantsy"];
+
 reset();
 
 function reset(){
-    theWord = "secret";
+    theWord = michaelWords[Math.floor(Math.random() * michaelWords.length)];
     guesses = "";
     remainingLetterCount = theWord.length;
     manCount = 6;
     reveal = "_".repeat(remainingLetterCount).split("");
     document.getElementById("revealing-word").innerHTML = reveal.join("  ");
     console.log(reveal);
+    document.getElementById("previous-guesses").innerHTML = "Guesses: ";
+    document.getElementById("message").innerHTML = "<h3>New game!</h3>";
+    document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_6.jpg' alt = '6'>";
 }
 
 function userGuess(event){
     var letter = event.key;
     if (alphabet.includes(letter)&&!guesses.includes(letter)){              //we only continue if the key is new and a letter
         guesses+=letter;                                                    //add users guess to the list of guessed letters
-        document.getElementById("previous_guesses").innerHTML = "Guesses: "+ guesses;    //display them                              
+        document.getElementById("previous-guesses").innerHTML = "Guesses: "+ guesses;    //display them                              
         var i;
         var match = false;
         
@@ -31,15 +36,19 @@ function userGuess(event){
             if (letter===theWord.split("")[i]){                             //If the guessed letter matches a letter in theWord, we... 
                 match = true;                                               //verify a match, 
                 remainingLetterCount--;                                     //descrease the remainingLetterCount,
-                //-->adjust display of theWord                              //and display the letter.
                 reveal[i]=letter;
-                document.getElementById("revealing-word").innerHTML = reveal.join("  ");
+                document.getElementById("revealing-word").innerHTML = reveal.join("  ");             //and display the letter.
                 document.getElementById("message").innerHTML = "<h3>It's a match!</h3>";
             }
         }
         if (!match){                                                        //If there were no matches, we... 
             manCount--;                                                     //decrease manCount and
-            //-->change the image of the man                                //change the image of the man.
+            if (manCount==1){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_1.jpg' alt = '1'>";} 
+            if (manCount==2){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_2.jpg' alt = '2'>";} 
+            if (manCount==3){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_3.jpg' alt = '3'>";} 
+            if (manCount==4){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_4.jpg' alt = '4'>";} 
+            if (manCount==5){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_5.jpg' alt = '5'>";} 
+            if (manCount==6){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_0.jpg' alt = '6'>";} 
             document.getElementById("message").innerHTML = "<h3>No match, sorry.</h3>";
         }
         console.log(match);
@@ -47,11 +56,9 @@ function userGuess(event){
         //END GAME?
         if (remainingLetterCount<=0){                                       //if youve won...
             document.getElementById("message").innerHTML = "<h3>You won! </h3>";
-            //--> make reset button which, if pressed, executes reset()
         }
         if (manCount<=0){                                                   //if you've lost...
         document.getElementById("message").innerHTML = "<h3>You lost, sorry.</h3>";
-            //--> make reset button which, if pressed, executes reset()
         }
         console.log(manCount);
     }
