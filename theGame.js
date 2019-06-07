@@ -48,7 +48,7 @@ function userGuess(event){
             if (manCount==3){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_3.jpg' alt = '3'>";} 
             if (manCount==4){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_4.jpg' alt = '4'>";} 
             if (manCount==5){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_5.jpg' alt = '5'>";} 
-            if (manCount==6){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_0.jpg' alt = '0'>";} 
+            if (manCount==0){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_0.jpg' alt = '0'>";} 
             document.getElementById("message").innerHTML = "<h3>No match, sorry.</h3>";
         }
         console.log(match);
