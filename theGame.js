@@ -2,18 +2,18 @@ var alphabet = "abcdefghijklmnopqrstuvwxyz"
 var theWord;
 var guesses;
 var remainingLetterCount;
-var manCount;
+var count;
 var reveal;
 
-var michaelWords = ["hakuna", "matata", "pride", "lion", "mufasa", "rafiki"];
+var theWords = ["hakuna", "matata", "pride", "lion", "mufasa", "rafiki"];
 
 reset();
 
 function reset(){
-    theWord = michaelWords[Math.floor(Math.random() * michaelWords.length)];
+    theWord = theWords[Math.floor(Math.random() * theWords.length)];
     guesses = "";
     remainingLetterCount = theWord.length;
-    manCount = 6;
+    count = 6;
     reveal = "_".repeat(remainingLetterCount).split("");
     document.getElementById("revealing-word").innerHTML = reveal.join("  ");
     console.log(reveal);
@@ -42,13 +42,13 @@ function userGuess(event){
             }
         }
         if (!match){                                                        //If there were no matches, we... 
-            manCount--;                                                     //decrease manCount and
-            if (manCount==1){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_1.jpg' alt = '1'>";} 
-            if (manCount==2){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_2.jpg' alt = '2'>";} 
-            if (manCount==3){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_3.jpg' alt = '3'>";} 
-            if (manCount==4){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_4.jpg' alt = '4'>";} 
-            if (manCount==5){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_5.jpg' alt = '5'>";} 
-            if (manCount==0){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_0.jpg' alt = '0'>";} 
+            count--;                                                     //decrease count and
+            if (count==1){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_1.jpg' alt = '1'>";} 
+            if (count==2){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_2.jpg' alt = '2'>";} 
+            if (count==3){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_3.jpg' alt = '3'>";} 
+            if (count==4){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_4.jpg' alt = '4'>";} 
+            if (count==5){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_5.jpg' alt = '5'>";} 
+            if (count==0){document.getElementById("the-pic").innerHTML = "<img src = 'assets/simba_0.jpg' alt = '0'>";} 
             document.getElementById("message").innerHTML = "<h3>No match, sorry.</h3>";
         }
         console.log(match);
@@ -57,9 +57,9 @@ function userGuess(event){
         if (remainingLetterCount<=0){                                       //if youve won...
             document.getElementById("message").innerHTML = "<h3>You won! </h3>";
         }
-        if (manCount<=0){                                                   //if you've lost...
+        if (count<=0){                                                   //if you've lost...
         document.getElementById("message").innerHTML = "<h3>You lost, sorry.</h3>";
         }
-        console.log(manCount);
+        console.log(count);
     }
 }
