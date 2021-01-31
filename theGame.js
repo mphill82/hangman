@@ -5,7 +5,7 @@ var remainingLetterCount;
 var count;
 var reveal;
 
-var theWords = ["hakuna", "matata", "pride", "lion", "mufasa", "rafiki"];
+var theWords = ["hakuna", "matata", "pride", "lion", "mufasa", "rafiki", "nala"];
 
 reset();
 
