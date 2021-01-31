@@ -5,7 +5,7 @@ var remainingLetterCount;
 var manCount;
 var reveal;
 
-var michaelWords = ["bombajohn", "kookaburra","candleboy","coasterboy","boinus","detritus","rantsy"];
+var michaelWords = ["hakuna", "matata", "pride", "lion", "mufasa", "rafiki"];
 
 reset();
 

@@ -6,24 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hangman</title>
     <style>
-        .center {
+        .content {
             margin: auto;
             width: 60%;
             border: 3px solid #73AD21;
             padding: 10px;
+            size: 14pt;
         }
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <div class="Jumbotron">
-        <h3>Hangman: Guess the inside joke letter by letter before Simba here turns into a total dad.</h3>
-    </div>
+
     <div class="row" class="center">
         <div class="col-md-4" id="the-pic">
             <!--display the images of simba-->
         </div>
-        <div class="col-md-8" class="center">
+        <div class="col-md-8" class="conent">
+            <div class="row" id="title">
+                <h3>Hangman: Guess the word before simba grows up.</h3>
+
+            </div>
             <div class="row" id="revealing-word">
                 <!--display theWord, leaving blanks until the letters are guessed-->
             </div>
